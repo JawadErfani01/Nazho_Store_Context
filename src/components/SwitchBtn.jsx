@@ -1,4 +1,5 @@
 import Switch from "react-switch"
+
 import { useContext } from "react"
 import { cartContext } from "../Context/cartContext"
 const SwitchBtn = () => {
@@ -6,7 +7,7 @@ const SwitchBtn = () => {
 
 
   return (
-    <div className='shadow flex justify-center bg-gray-200 items-center w-[50%] md:w-[15%] md:m-0 m-auto p-1.5'>
+    <div className='shadow flex justify-center bg-gray-200 items-center w-[50%] md:w-[20%] md:m-0 m-auto p-1.5'>
       <Switch
         checked={change}
         onChange={() => changeMony()}

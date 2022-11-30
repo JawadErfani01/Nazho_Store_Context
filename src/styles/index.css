@@ -36,7 +36,7 @@ body{
   .welcomeText{
     font-style: italic;
   text-shadow: 2px  1px 5px rgb(163, 163, 163);
-  font-size: 48px;
+ 
   }
   .product-card {
     position: relative;

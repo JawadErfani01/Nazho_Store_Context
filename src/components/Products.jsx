@@ -37,7 +37,7 @@ function Products() {
 
   return (
     <div className='text-center'>
-      <h1 className='welcomeText p-5 pb-3  text-center'>
+      <h1 className='welcomeText p-5 pb-3  text-center text-3xl sm:text-4xl md:text-5xl'>
         Welcome to Nazho Store
       </h1>
 
