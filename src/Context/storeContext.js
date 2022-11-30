@@ -7,26 +7,47 @@ const StoreProvider = ({ children }) => {
     const [error, seterror] = useState(false)
     const [loading, setloading] = useState(false)
     const [message, setmessage] = useState("")
-    const [searchValue, setsearchValue] = useState("")
 
 
 
-   const getProduct =async (thankApi) => {
-    setloading(true)
+    const getProduct = async (thankApi) => {
+        setloading(true)
         try {
-          const response=await  axios
-          .get("https://fakestoreapi.com/products")
-          .then((res) => res.data)
-           setlist(response)
-          setloading(false)
+            const response = await axios
+                .get("https://fakestoreapi.com/products")
+                .then((res) => res.data)
+            setlist(response)
+            setloading(false)
         } catch (err) {
             setmessage(err.message)
             seterror(true)
-            setloading(false)       
+            setloading(false)
         }
-      }
+    }
+
+    const getCategory = async (category) => {
+        setloading(true)
+        try {
+            if (category === 'All') {
+                getProduct()
+            } else {
+                const response = await axios
+                    .get(`https://fakestoreapi.com/products/category/${category}`)
+                    .then((res) => res.data)
+                setlist(response)
+                setloading(false)
+            }
+
+        } catch (err) {
+            setmessage(err.message)
+            seterror(true)
+            setloading(false)
+        }
+    }
+
+
     return (
-        <storeContext.Provider value={{getProduct,list, loading, error, message  }}>
+        <storeContext.Provider value={{ getProduct, getCategory, list, loading, error, message }}>
             {children}
         </storeContext.Provider>
     )
