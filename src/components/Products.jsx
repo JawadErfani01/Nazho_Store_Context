@@ -1,19 +1,20 @@
 import { useContext, useEffect, useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import Product from '../components/Product'
 import { toast } from 'react-toastify'
 import SwitchBtn from './SwitchBtn'
-import { getData } from '../Feuture/reducers/storeReducer/storeSlice'
+
 import Loading from '../components/Loading'
 import MyPagoination from './MyPagoination'
 import { getCategory } from '../Feuture/reducers/storeReducer/storeSlice'
 import SelectAmount  from './SelectAmount'
 import { FaSearch } from 'react-icons/fa'
 import { paginationContext } from '../Context/paginationContext'
+import { storeContext } from '../Context/storeContext'
 function Products() {
   const dispatch = useDispatch()
   const [title, settitle] = useState('')
-  const { list, loading, error, message } = useSelector((state) => state.store)
+  const { list, loading, error, message,getProduct } = useContext(storeContext)
   const { currentPage, dataPerPage } = useContext(paginationContext)
 
   const indexOfLastCart = currentPage * dataPerPage
@@ -29,8 +30,9 @@ function Products() {
   const newList = handelSearch.slice(indexOfFirstCart, indexOfLastCart)
 
   useEffect(() => {
-    dispatch(getData())
-  }, [dispatch])
+    getProduct()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   if (error) {
     toast.error(message)
