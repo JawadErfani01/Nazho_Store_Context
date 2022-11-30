@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Product from '../components/Product'
 import { toast } from 'react-toastify'
@@ -9,11 +9,12 @@ import MyPagoination from './MyPagoination'
 import { getCategory } from '../Feuture/reducers/storeReducer/storeSlice'
 import SelectAmount  from './SelectAmount'
 import { FaSearch } from 'react-icons/fa'
+import { paginationContext } from '../Context/paginationContext'
 function Products() {
   const dispatch = useDispatch()
   const [title, settitle] = useState('')
   const { list, loading, error, message } = useSelector((state) => state.store)
-  const { currentPage, dataPerPage } = useSelector((state) => state.pagination)
+  const { currentPage, dataPerPage } = useContext(paginationContext)
 
   const indexOfLastCart = currentPage * dataPerPage
   const indexOfFirstCart = indexOfLastCart - dataPerPage

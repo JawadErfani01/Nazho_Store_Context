@@ -1,13 +1,10 @@
-import { useDispatch, useSelector } from 'react-redux'
-import {
-  handleBack,
-  handleNext,
-  handlePageinate,
-} from '../Feuture/reducers/paginationReducer/paginationSlice'
+
+import { paginationContext } from '../Context/paginationContext'
+import { useContext } from "react"
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 const MyPagoination = ({ handelSearch }) => {
-  const dispatch = useDispatch()
-  const { currentPage, dataPerPage } = useSelector((state) => state.pagination)
+
+  const { currentPage, dataPerPage,handleBack,handleNext,handlePageinate } = useContext(paginationContext)
   let pageNumbers = []
   for (
     let index = 1;
@@ -23,7 +20,7 @@ const MyPagoination = ({ handelSearch }) => {
           currentPage === 1 && `opacity-50`
         } p-2 border-0 px-2   mx-1 text-lg`}
         disabled={currentPage === 1}
-        onClick={() => dispatch(handleBack())}
+        onClick={() => handleBack()}
       >
         <FaArrowLeft />
       </button>
@@ -32,7 +29,7 @@ const MyPagoination = ({ handelSearch }) => {
           <button
             key={index}
             className='rounded-lg bg-gray-200 border-0 px-2 h-8 w-8 mx-1 text-lg'
-            onClick={() => dispatch(handlePageinate(number))}
+            onClick={() =>handlePageinate(number)}
           >
             {number}
           </button>
@@ -44,7 +41,7 @@ const MyPagoination = ({ handelSearch }) => {
           currentPage === pageNumbers.length && `opacity-50`
         } p-2 border-0 px-2 mx-1 text-lg'`}
         disabled={currentPage === pageNumbers.length}
-        onClick={() => dispatch(handleNext())}
+        onClick={() => handleNext()}
       >
         <FaArrowRight />
       </button>

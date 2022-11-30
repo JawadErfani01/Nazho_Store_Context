@@ -6,9 +6,8 @@ import Header from "./components/Navbar/Header"
 import Fotter from "./components/Fotter/Fotter"
 import Cart from "./pages/Cart"
 import Login from "./pages/Login"
-
-
 function App() {
+
   return (
     <>
       <div

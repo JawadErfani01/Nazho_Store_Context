@@ -1,15 +1,15 @@
-import { useDispatch } from 'react-redux'
-import { changeDispalyData } from '../Feuture/reducers/paginationReducer/paginationSlice'
+import { useContext } from 'react'
+import { paginationContext } from '../Context/paginationContext'
 
 const SelectAmount = () => {
-  const dispatch = useDispatch()
+  const { changeDispalyData } = useContext(paginationContext)
   return (
     <div>
       <form>
         <select
-        className='w-[100%] p-3 rounded-lg  py-2 border '
+          className='w-[100%] p-3 rounded-lg  py-2 border '
           id='exampleSelect'
-          onChange={(e) => dispatch(changeDispalyData(e.target.value))}
+          onChange={(e) => changeDispalyData(e.target.value)}
           name='select'
           type='select'
         >
