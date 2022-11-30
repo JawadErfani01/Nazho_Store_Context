@@ -6,37 +6,35 @@ import Header from "./components/Navbar/Header"
 import Fotter from "./components/Fotter/Fotter"
 import Cart from "./pages/Cart"
 import Login from "./pages/Login"
+import About from "./pages/About"
 function App() {
 
   return (
-    <>
-      <div
-        className=' flex flex-col  justify-between'
-      >
-        <div>
-          <Header />
-          <ToastContainer
-            position='bottom-left'
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={false}
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/Cart' element={<Cart />} />
-            <Route path='/login' element={<Login />} />
-          </Routes>
-        </div>
-        <div>
-          <Fotter />
-        </div>
+    <div className="min-h-screen flex flex-col justify-between">
+      <div>
+        <Header />
+        <ToastContainer
+          position='bottom-left'
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/Cart' element={<Cart />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/about' element={<About />} />
+        </Routes>
       </div>
-    </>
+      <div className="">
+        <Fotter />
+      </div>
+    </div>
   )
 }
 
