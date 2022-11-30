@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
 import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa'
-import { useSelector } from 'react-redux/es/exports'
 import { FaShoppingCart } from 'react-icons/fa'
+import { cartContext } from '../../Context/cartContext'
 
 const Header = () => {
   const [showNav, setShowNav] = useState(false)
-  const { NOrder } = useSelector((state) => state.cart)
+  const { NOrder } = useContext(cartContext)
   const handelNav = () => {
     setShowNav(!showNav)
   }

@@ -1,16 +1,16 @@
-import { useSelector, useDispatch } from 'react-redux/es/exports'
 import { Link } from 'react-router-dom'
 import BtnBack from '../components/BtnBack'
 import { IoAdd } from 'react-icons/io5'
 import { GrFormSubtract } from 'react-icons/gr'
 import { toast } from 'react-toastify'
-import { decrement, deleteItem, increment } from '../Feuture/reducers/cartReducer/cartSlice'
 import SwitchBtn from '../components/SwitchBtn'
+import { useContext } from 'react'
+import { cartContext } from '../Context/cartContext'
 
 const Cart = () => {
-  const dispatch = useDispatch()
+  
 
-  const { items, change } = useSelector((state) => state.cart)
+  const { items, change, decrement, deleteItem, increment } = useContext(cartContext)
 
   const handelSubmit = () => {
     toast('Your Order was Recorded')
@@ -67,7 +67,7 @@ const Cart = () => {
                       </div>
                       <div>
                         <button
-                          onClick={() => dispatch(increment(item))}
+                          onClick={() => increment(item)}
                           className='p-2 m-2 '
                           disabled={quantitiy === item.rating.count}
                         >
@@ -75,7 +75,7 @@ const Cart = () => {
                         </button>
                         <span className='p-2 h4'> {quantitiy}</span>
                         <button
-                          onClick={() => dispatch(decrement(item))}
+                          onClick={() =>decrement(item)}
                           className='p-2 m-2 '
                           disabled={quantitiy === 1}
                         >
@@ -84,7 +84,7 @@ const Cart = () => {
                       </div>
 
                       <button
-                        onClick={() => dispatch(deleteItem(item))}
+                        onClick={() => deleteItem(item)}
                         className='btn btn-outline-danger text-black w-50 '
                       >
                         Delete From Cart

@@ -1,15 +1,15 @@
 import Switch from "react-switch"
-import { useSelector, useDispatch } from "react-redux"
-import { changeMony } from "../Feuture/reducers/cartReducer/cartSlice"
+import { useContext } from "react"
+import { cartContext } from "../Context/cartContext"
 const SwitchBtn = () => {
-  const { change, total } = useSelector((state) => state.cart)
+  const { change, total,changeMony } = useContext(cartContext)
 
-  const dispatch = useDispatch()
+
   return (
     <div className='shadow flex justify-center bg-gray-200 items-center w-[50%] md:w-[15%] md:m-0 m-auto p-1.5'>
       <Switch
         checked={change}
-        onChange={() => dispatch(changeMony())}
+        onChange={() => changeMony()}
         handleDiameter={28}
         offColor='#08f'
         onColor='#0ff'

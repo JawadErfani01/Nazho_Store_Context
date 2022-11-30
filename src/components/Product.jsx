@@ -1,14 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useContext } from 'react'
 import { toast } from 'react-toastify'
-import { addToCart, getTotalPrice } from '../Feuture/reducers/cartReducer/cartSlice'
+import { cartContext } from '../Context/cartContext'
 
 const Product = ({ item }) => {
   const { title, price, image, rating } = item
-  const dispatch = useDispatch()
-  const { change } = useSelector((state) => state.cart)
+
+  const { change,addToCart, getTotalPrice } = useContext(cartContext)
   const handelAdd = (item) => {
-    dispatch(getTotalPrice(item))
-    dispatch(addToCart(item))
+    getTotalPrice(item)
+    addToCart(item)
     toast.success(` ${item.title} added to your cart`)
   }
   return (
