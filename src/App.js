@@ -7,8 +7,9 @@ import Fotter from "./components/Fotter/Fotter"
 import Cart from "./pages/Cart"
 import Login from "./pages/Login"
 import About from "./pages/About"
-function App() {
+import Register from "./pages/Register"
 
+function App() {
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <div>
@@ -28,6 +29,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/Cart' element={<Cart />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
           <Route path='/about' element={<About />} />
         </Routes>
       </div>

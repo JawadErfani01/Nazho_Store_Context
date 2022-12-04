@@ -7,16 +7,15 @@ const CartProvider = ({ children }) => {
     const [NOrder, setNOrder] = useState(0)
     const [total, settotal] = useState(0)
     const [change, setchange] = useState(false)
-console.log(items);
+
     const addToCart = (product) => {
-     
         const index = items?.findIndex(
             (item) => item.id === product.id
         )
         if (index >= 0) {
             items[index].quantitiy += 1
         } else {
-          items.push({
+            items.push({
                 ...product,
                 quantitiy: 1,
             })
@@ -32,7 +31,6 @@ console.log(items);
         )
         if (items[index].quantitiy >= 1) {
             items[index].quantitiy += 1
-            //   toast.info(`You increased ${action.payload.title} `)
             settotal(total + product.price)
         }
     }
@@ -45,7 +43,6 @@ console.log(items);
         if (items[index].quantitiy > 1) {
             items[index].quantitiy -= 1
             settotal(total - product.price)
-            //   toast.error(`You Decreased ${action.payload.title}`)
         }
     }
 
@@ -53,7 +50,6 @@ console.log(items);
         setitems(items.filter((item) => item.id !== product.id))
         settotal(total - product.price * product.quantitiy)
         setNOrder(NOrder - 1)
-        // toast(`You Delete ${action.payload.title} from cart`)
     }
 
     const clearCart = () => {
@@ -72,7 +68,7 @@ console.log(items);
 
 
     return (
-        <cartContext.Provider value={{items, change,total,NOrder , addToCart, changeMony, clearCart, getTotalPrice, deleteItem, increment, decrement }}>
+        <cartContext.Provider value={{ items, change, total, NOrder, addToCart, changeMony, clearCart, getTotalPrice, deleteItem, increment, decrement }}>
             {children}
         </cartContext.Provider>
     )

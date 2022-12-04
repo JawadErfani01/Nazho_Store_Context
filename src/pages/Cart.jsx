@@ -100,8 +100,8 @@ const Cart = () => {
               )
             })}
 
-            <div className='flex flex-row mt-0  items-center justify-around '>
-              <SwitchBtn className="text-left bg-green-400" />
+            <div className='flex flex-row mt-3  items-center justify-around '>
+              <SwitchBtn  />
 
               <button
                 onClick={handelSubmit}

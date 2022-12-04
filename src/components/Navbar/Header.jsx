@@ -58,8 +58,18 @@ const Header = () => {
               </span>
             </div>
           </ul>
+          <div className='flex'>
+          <div className='relative mx-5 md:hidden'>
+              <Link to='/Cart' className='text-yellow-400  '>
+                <FaShoppingCart size={28} />
+              </Link>
+              <span className='bg-blue-300 left-5 top-[-10px] absolute rounded-full flex justify-center items-center w-4 p-2 h-4 '>
+                {NOrder}
+              </span>
+          </div>
           <div onClick={handelNav} className='md:hidden cursor-pointer'>
             <AiOutlineMenu size={25} />
+          </div>
           </div>
         </div>
       </div>
@@ -97,16 +107,16 @@ const Header = () => {
           <div>
             <ul className='uppercase'>
               <Link to='/'>
-                <li className='my-4 text-sm cursor-pointer'>Home</li>
+                <li onClick={()=>handelNav()} className='my-4 text-sm cursor-pointer'>Home</li>
               </Link>
-              <Link to='/about'>
-                <li className='my-4 text-sm cursor-pointer'>About</li>
+              <Link  to='/about'>
+                <li onClick={()=>handelNav()} className='my-4 text-sm cursor-pointer'>About</li>
               </Link>
               <Link to='/login'>
-                <li className='my-4 text-sm cursor-pointer'>Login</li>
+                <li onClick={()=>handelNav()} className='my-4 text-sm cursor-pointer'>Login</li>
               </Link>
               <Link to='/register'>
-                <li className='my-4 text-sm cursor-pointer'>Register</li>
+                <li onClick={()=>handelNav()} className='my-4 text-sm cursor-pointer'>Register</li>
               </Link>
             
             </ul>

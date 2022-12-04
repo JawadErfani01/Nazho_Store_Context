@@ -8,10 +8,11 @@ import { BrowserRouter } from "react-router-dom"
 import PaginationProvider from './Context/paginationContext';
 import CartProvider from './Context/cartContext';
 import StoreProvider from './Context/storeContext';
+import UserProvider from './Context/userContext';
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
   <BrowserRouter>
-   
+   <UserProvider>
       <PaginationProvider>
         <CartProvider>
           <StoreProvider>
@@ -19,7 +20,7 @@ root.render(
           </StoreProvider>
         </CartProvider>
       </PaginationProvider>
-  
+      </UserProvider>
   </BrowserRouter>
 )
 
