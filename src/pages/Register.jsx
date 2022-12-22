@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useState ,useContext} from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import {userContext} from '../Context/userContext'
 const Register = () => {
+  const {setuserInfo}=useContext(userContext)
     const navigate=useNavigate()
   const [data, setdata] = useState({ email: '', password: '',userName:'' })
   const { email, password ,userName} = data
@@ -15,7 +17,7 @@ const Register = () => {
 
   const handelSubmit = (e) => {
     e.preventDefault()
-    console.log(data);
+    setuserInfo(data)
     window.localStorage.setItem("userInfo",JSON.stringify(data))
     navigate("/")
     setdata({email:'',password:'',userName:''})

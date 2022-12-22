@@ -6,14 +6,23 @@ import { toast } from 'react-toastify'
 import SwitchBtn from '../components/SwitchBtn'
 import { useContext } from 'react'
 import { cartContext } from '../Context/cartContext'
-
+import { userContext } from '../Context/userContext'
+import {useNavigate} from 'react-router-dom'
 const Cart = () => {
+  const navigate=useNavigate()
   const { items, change, decrement, deleteItem, increment } =
     useContext(cartContext)
+const {userInfo}=useContext(userContext)
 
   const handelSubmit = () => {
-    toast('Your Order was Recorded')
-    console.log(items)
+    if(userInfo===null){
+      navigate("/login")
+    }else{
+      toast('Your Order was Recorded')
+      navigate('/userProfile')
+      console.log(items)
+    }
+  
   }
 
   return (
@@ -58,7 +67,7 @@ const Cart = () => {
                   />
                   <div className='mt-3 text-center'>
                     <h2 className="text-xl">Name: {title}</h2>
-                    <div>Description: {description}</div>
+                    <p className="text-sm">Description: {description}</p>
                     <div className='flex justify-around  pt-3 '>
                       <span>
                         Price:{' '}

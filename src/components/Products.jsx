@@ -40,7 +40,7 @@ function Products() {
       <h1 className='welcomeText p-5 pb-3  text-center text-3xl sm:text-4xl md:text-5xl'>
         Welcome to Nazho Store
       </h1>
-
+      <p className='text-red-600'> (  Conatext API  )</p>
       <div className='text-center my-3  shadow md:flex w-[80%] m-auto md:w-[100%] md:justify-around items-center p-3 '>
         <form className='my-3 md:w-[25%]  relative'>
           <input
