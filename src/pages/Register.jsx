@@ -73,7 +73,7 @@ const Register = () => {
           type='submit'
           className=' my-3 border-none w-[50%] bg-white outline-none text-black py-1.5 rounded-full px-5 cursor-pointer shadow-lg shadow-slate-600 hover:shadow-slate-400'
         />
-        <div className='bg-transparent flex justify-end text-sm' >  <Link className='bg-transparent border-blue-400 hover:border-b-2 p-1 text-gray-400 hover:text-gray-200 '  to="/login">alredy have account</Link></div>
+        <div className='bg-transparent flex justify-end text-sm' >  <Link className='bg-transparent border-blue-400 hover:border-b-2 p-1 text-gray-400 hover:text-gray-200 '  to="/login">already have account</Link></div>
    
       </form>
     </div>
