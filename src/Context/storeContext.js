@@ -1,16 +1,17 @@
 import { createContext, useState } from "react";
 import axios from "axios"
-export const storeContext = createContext()
+import {products} from "../data/products"
 
+export const storeContext = createContext()
 const StoreProvider = ({ children }) => {
-    const [list, setlist] = useState([])
+    const [list, setlist] = useState(products||[])
     const [error, seterror] = useState(false)
     const [loading, setloading] = useState(false)
     const [message, setmessage] = useState("")
 
 
 
-    const getProduct = async (thankApi) => {
+    const getProduct = async () => {
         setloading(true)
         try {
             const response = await axios
@@ -37,7 +38,6 @@ const StoreProvider = ({ children }) => {
                 setlist(response)
                 setloading(false)
             }
-
         } catch (err) {
             setmessage(err.message)
             seterror(true)

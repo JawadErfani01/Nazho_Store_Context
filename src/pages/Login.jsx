@@ -76,7 +76,8 @@ const Login = () => {
         </div>
         <input
           type='submit'
-          className=' my-2 border-none w-[50%] bg-white outline-none text-black py-1.5 rounded-full px-5 cursor-pointer shadow-lg shadow-slate-600 hover:shadow-slate-400'
+          value="Sign in"
+          className='italic my-2 border-none w-[50%] bg-white outline-none text-black py-1.5 rounded-full px-5 cursor-pointer shadow-lg shadow-slate-600 hover:shadow-slate-400'
         />
         <div className='bg-transparent flex justify-end text-sm'>
           {' '}
