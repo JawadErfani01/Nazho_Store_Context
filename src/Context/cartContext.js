@@ -24,6 +24,12 @@ const CartProvider = ({ children }) => {
             window.localStorage.setItem("product", product)
         }
     }
+    
+    const deleteItem = (product) => {
+        setitems(items.filter((item) => item.id !== product.id))
+        settotal(total - product.price * product.quantitiy)
+        setNOrder(NOrder - 1)
+    }
 
     const increment = (product) => {
         const index = items.findIndex(
@@ -46,11 +52,7 @@ const CartProvider = ({ children }) => {
         }
     }
 
-    const deleteItem = (product) => {
-        setitems(items.filter((item) => item.id !== product.id))
-        settotal(total - product.price * product.quantitiy)
-        setNOrder(NOrder - 1)
-    }
+   
 
     const clearCart = () => {
         setitems([])

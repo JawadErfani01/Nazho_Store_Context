@@ -80,7 +80,7 @@ function Products() {
       {loading ? (
         <Loading />
       ) : (
-        <div className='grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 m-3 '>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-6 m-3 '>
           {newList.map((item, index) => (
             <div key={index} className='  m-3  '>
               <Product item={item} />

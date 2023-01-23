@@ -3,6 +3,10 @@ import axios from "axios"
 import {products} from "../data/products"
 
 export const storeContext = createContext()
+
+
+
+
 const StoreProvider = ({ children }) => {
     const [list, setlist] = useState(products||[])
     const [error, seterror] = useState(false)
